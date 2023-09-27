@@ -1,5 +1,7 @@
 package org.example.entidades;
 
+import org.example.validaciones.ValidacionAfiliado;
+
 import java.time.LocalDate;
 
 public class    Afiliado {
@@ -22,6 +24,8 @@ public class    Afiliado {
 
     private String telefono;
 
+    private ValidacionAfiliado validacionAfiliado=new ValidacionAfiliado(); // inyectar dependencias
+
     public Afiliado() {
     }
 
@@ -42,7 +46,16 @@ public class    Afiliado {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        try {// intentento si no fui capaz capturo el por que
+            this.validacionAfiliado.valiadarId(id);
+            this.id=id;
+            System.out.println("id cargado con exito");
+
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+
+
     }
 
     public String getDocumento() {
@@ -50,6 +63,7 @@ public class    Afiliado {
     }
 
     public void setDocumento(String documento) {
+
         this.documento = documento;
     }
 
@@ -58,7 +72,13 @@ public class    Afiliado {
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+
+        try {
+            this.validacionAfiliado.validarNombre(nombres);
+            this.nombres=nombres;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getApellidos() {
