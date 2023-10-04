@@ -3,6 +3,7 @@ package org.example;
 import org.example.entidades.Afiliado;
 import org.example.entidades.Examenesgenerales;
 import org.example.entidades.Signovital;
+import org.example.validaciones.ValidacionAfiliado;
 import org.example.validaciones.ValidacionSignoVital;
 
 import java.time.LocalDate;
@@ -13,6 +14,10 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner entradaTeclado = new Scanner(System.in);
+
+        ValidacionAfiliado validacionAfiliado= new ValidacionAfiliado();
+        validacionAfiliado.trabajarFechas();
+
 
 
         Afiliado afiliado = new Afiliado();
