@@ -47,7 +47,7 @@ public class    Afiliado {
 
     public void setId(Integer id) {
         try {// intentento si no fui capaz capturo el por que
-            this.validacionAfiliado.valiadarId(id);
+            this.validacionAfiliado.validarId(id);
             this.id=id;
             System.out.println("id cargado con exito");
 
@@ -64,7 +64,13 @@ public class    Afiliado {
 
     public void setDocumento(String documento) {
 
-        this.documento = documento;
+        try {
+            this.validacionAfiliado.validarDocumento(documento);
+            this.documento=documento;
+            System.out.println("id cargado con exito");
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getNombres() {
@@ -86,7 +92,13 @@ public class    Afiliado {
     }
 
     public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+
+        try {
+            this.validacionAfiliado.validarApellido(apellidos);
+            this.apellidos=apellidos;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public LocalDate getFechaNacimiento() {
@@ -102,7 +114,14 @@ public class    Afiliado {
     }
 
     public void setCiudad(Integer ciudad) {
-        this.ciudad = ciudad;
+        try {
+            this.validacionAfiliado.validarCiudad(ciudad.toString());
+            this.ciudad=ciudad;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+
+
     }
 
     public Integer getDepartamento() {
@@ -110,7 +129,15 @@ public class    Afiliado {
     }
 
     public void setDepartamento(Integer departamento) {
-        this.departamento = departamento;
+
+        try {
+            this.validacionAfiliado.validarDepartamento(departamento.toString());
+            this.departamento=departamento;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
+
+
     }
 
     public String getCorreoElectronico() {
@@ -118,7 +145,13 @@ public class    Afiliado {
     }
 
     public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+
+        try {
+            this.validacionAfiliado.validarCorreoElectronico(correoElectronico);
+            this.correoElectronico=correoElectronico;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getTelefono() {
@@ -126,6 +159,12 @@ public class    Afiliado {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+
+        try {
+            this.validacionAfiliado.validarTelefono(telefono);
+            this.telefono=telefono;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 }

@@ -1,5 +1,7 @@
 package org.example.entidades;
 
+import org.example.validaciones.ValidacionSignoVital;
+
 import java.time.LocalDateTime;
 
 public class Signovital {
@@ -16,6 +18,8 @@ public class Signovital {
     private Double minimoNormal;
 
     private LocalDateTime fecha;
+
+    public ValidacionSignoVital validacionSignoVital=new ValidacionSignoVital();
 
     public Signovital() {
     }
@@ -34,7 +38,13 @@ public class Signovital {
     }
 
     public void setId(Integer id) {
-        this.id = id;
+
+        try {
+            this.validacionSignoVital.validarId(id);
+            this.id=id;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public String getNombre() {
@@ -42,7 +52,14 @@ public class Signovital {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+        try {
+            this.validacionSignoVital.validarNombre(nombre);
+            this.nombre=nombre;
+        }catch (Exception eror){
+            System.out.println(eror.getMessage());
+        }
+
     }
 
     public Integer getUnidadMedida() {
@@ -50,7 +67,13 @@ public class Signovital {
     }
 
     public void setUnidadMedida(Integer unidadMedida) {
-        this.unidadMedida = unidadMedida;
+
+        try {
+            this.validacionSignoVital.valiidartUnidadMerdida(unidadMedida);
+            this.unidadMedida=unidadMedida;
+        }catch (Exception error){
+            System.out.println(error.getMessage());
+        }
     }
 
     public Double getMaximoNormal() {
