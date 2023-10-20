@@ -18,7 +18,7 @@ public class ValidacionExamenGeneral {
     public Boolean validarNombreExamen(String nombreExamen)throws Exception{
 
         if (nombreExamen.length()<10 || nombreExamen.length()>150){
-            throw  new Exception(" Error en el nombre del examen no coincide ennuestro sistema");
+            throw  new Exception(" Error en el nombre del examen no coincide en el sistema");
 
         }
         String expresionRegular="^[a-zA-Z ]+$";
@@ -30,8 +30,8 @@ public class ValidacionExamenGeneral {
 
     public  Boolean validarImagenExamen (String imagenExamen)throws Exception{
 
-        if (imagenExamen.length()>200 || imagenExamen.length()<0){
-            throw  new Exception("la imagen supera o no cu,ple los requerimientos necesarios");
+        if (imagenExamen.length()<0 || imagenExamen.length()>200){
+            throw  new Exception("la imagen supera o no cumple los requerimientos necesarios");
 
         }
         return true;
