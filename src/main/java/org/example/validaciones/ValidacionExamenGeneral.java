@@ -30,7 +30,7 @@ public class ValidacionExamenGeneral {
 
     public  Boolean validarImagenExamen (String imagenExamen)throws Exception{
 
-        if (imagenExamen.length()<0 || imagenExamen.length()>200){
+        if (imagenExamen.length()<=0 || imagenExamen.length()>200){
             throw  new Exception("la imagen supera o no cumple los requerimientos necesarios");
 
         }

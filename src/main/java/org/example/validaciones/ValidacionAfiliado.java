@@ -93,7 +93,7 @@ public class ValidacionAfiliado {
     }
 
     public Boolean validarTelefono(String telefono) throws Exception {
-        if (telefono.length() > 10 || telefono.length() < 0) {
+        if (telefono.length() > 10 || telefono.length() <= 0) {
             throw new Exception("el telefono no es posible");
         }
         String expresionRegular = "^[0-9]+$";
