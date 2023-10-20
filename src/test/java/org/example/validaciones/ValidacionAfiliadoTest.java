@@ -208,6 +208,37 @@ class ValidacionAfiliadoTest {
         Assertions.assertEquals("el formato de correo electronico  no coincide",resultado.getMessage());
     }
 
+    @Test
+    public void validarTelefonoCorrecto() {
+        String telefonoPrueba = "3167512130";
+        Boolean resultado = Assertions.assertDoesNotThrow(() -> this.validacionAfiliado.validarTelefono(telefonoPrueba));
+        Assertions.assertTrue(resultado);
+    }
+
+    @Test
+    public void validarTelefonoIncorrectoTipoCaracteres() {
+        String telefonoprueba = "1235shdbus";
+        Exception resultado = Assertions.assertThrows(Exception.class, () -> this.validacionAfiliado.validarTelefono(telefonoprueba));
+        Assertions.assertEquals("el formato de telefono  no coincide", resultado.getMessage());
+    }
+
+    @Test
+    public void ValidarTelefonoIncorrectoLongitud() {
+        String telefonoPrueba = "";
+        Exception resultado = Assertions.assertThrows(Exception.class, () -> this.validacionAfiliado.validarTelefono(telefonoPrueba));
+        Assertions.assertEquals("el telefono no es posible", resultado.getMessage());
+
+
+    }
+
+    @Test
+    public void ValidarTelefonoIncorrectoLargo() {
+        String telefonoPruebaDos = "3345678987654334567";
+        Exception resultado = Assertions.assertThrows(Exception.class, () -> this.validacionAfiliado.validarTelefono(telefonoPruebaDos));
+        Assertions.assertEquals("el telefono no es posible", resultado.getMessage());
+
+    }
+
 
 
     }

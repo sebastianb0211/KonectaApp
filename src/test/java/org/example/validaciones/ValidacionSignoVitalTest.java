@@ -56,4 +56,5 @@ public void prepararPrueba()
         Assertions.assertEquals(Mensajes.ID_NEGATIVO.getMensaje(), resultado.getMessage());
     }
 
+
 }
