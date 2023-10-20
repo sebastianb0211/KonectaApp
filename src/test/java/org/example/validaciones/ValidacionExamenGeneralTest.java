@@ -73,7 +73,7 @@ class ValidacionExamenGeneralTest {
     @Test
     public void validarImagenExamenCaracteresMin()
     {
-        
+
         String imagenPrueba = "";
         Exception resultado = Assertions.assertThrows(Exception.class, () -> this.validacionExamenGeneral.validarImagenExamen(imagenPrueba));
         Assertions.assertEquals("la imagen supera o no cumple los requerimientos necesarios", resultado.getMessage());
